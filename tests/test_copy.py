@@ -27,8 +27,6 @@ def test_bootstrap(tmp_path: Path, odoo_version: float, cloned_template: Path):
     """Test that a project is properly bootstrapped."""
     data = {
         "odoo_version": odoo_version,
-        "org_name": "OCA",
-        "org_name": "Odoo Community Association (OCA)",
         "repo_slug": REPO_SLUG,
         "repo_name": "Test repo",
         "repo_description": "Test repo description",
