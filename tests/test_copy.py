@@ -78,6 +78,7 @@ def test_bootstrap(tmp_path: Path, odoo_version: float, cloned_template: Path):
     # Workflows for the template itself are not copied
     assert not (tmp_path / ".github" / "workflows" / "lint.yml").is_file()
     # Assert badges in readme; this is testing the repo_id macro
+    readme = (tmp_path / "README.md").read_text()
     assert "# Test repo" in readme
     assert data["repo_description"] in readme
     # Assert no stuff specific for this repo is found
