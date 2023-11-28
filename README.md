@@ -68,9 +68,10 @@ This template allows to bootstrap and update addon repositories for these Odoo v
 Future versions will be added as they are released. Past versions could be added as long
 as they don't break existing branches.
 
-Right now this template is tightly coupled with code, guidelines and decisions from Witech.
-You might find some things that you can reuse in your own templates, but in general
-terms this template is not meant to support being used as is for other organizations.
+Right now this template is tightly coupled with code, guidelines and decisions from
+Witech. You might find some things that you can reuse in your own templates, but in
+general terms this template is not meant to support being used as is for other
+organizations.
 
 ## The legal stuff
 
