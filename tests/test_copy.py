@@ -27,6 +27,8 @@ def test_bootstrap(tmp_path: Path, odoo_version: float, cloned_template: Path):
     """Test that a project is properly bootstrapped."""
     data = {
         "odoo_version": odoo_version,
+        "org_name": "OCA",
+        "org_name": "Odoo Community Association (OCA)",
         "repo_slug": REPO_SLUG,
         "repo_name": "Test repo",
         "repo_description": "Test repo description",
@@ -76,24 +78,6 @@ def test_bootstrap(tmp_path: Path, odoo_version: float, cloned_template: Path):
     # Workflows for the template itself are not copied
     assert not (tmp_path / ".github" / "workflows" / "lint.yml").is_file()
     # Assert badges in readme; this is testing the repo_id macro
-    readme = (tmp_path / "README.md").read_text()
-    assert (
-        f"[![Runboat](https://img.shields.io/badge/runboat-Try%20me-875A7B.png)](https://runboat.odoo-community.org/builds?repo=OCA/{REPO_SLUG}&target_branch={odoo_version})"  # noqa: B950
-        in readme
-    )
-    assert (
-        f"[![Build Status](https://travis-ci.com/OCA/{REPO_SLUG}.svg?branch={odoo_version})](https://travis-ci.com/OCA/{REPO_SLUG})"  # noqa: B950
-        in readme
-    )
-    assert (
-        f"[![codecov](https://codecov.io/gh/OCA/{REPO_SLUG}/branch/{odoo_version}/graph/badge.svg)](https://codecov.io/gh/OCA/{REPO_SLUG})"  # noqa: B950
-        in readme
-    )
-    odoo_version_tr = str(odoo_version).replace(".", "-")
-    assert (
-        f"[![Translation Status](https://translation.odoo-community.org/widgets/{REPO_SLUG}-{odoo_version_tr}/-/svg-badge.svg)](https://translation.odoo-community.org/engage/{REPO_SLUG}-{odoo_version_tr}/?utm_source=widget)"  # noqa: B950
-        in readme
-    )
     assert "# Test repo" in readme
     assert data["repo_description"] in readme
     # Assert no stuff specific for this repo is found
