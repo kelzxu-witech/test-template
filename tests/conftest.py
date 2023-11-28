@@ -7,7 +7,7 @@ from plumbum import local
 from plumbum.cmd import git
 
 PROJECT_ROOT = Path(__file__).parent.parent
-COPIER_SETTINGS = yaml.safe_load((PROJECT_ROOT / "cop.yml").read_text())
+COPIER_SETTINGS = yaml.safe_load((PROJECT_ROOT / "copier.yml").read_text())
 
 # Different tests test different Odoo versions
 ALL_ODOO_VERSIONS = tuple(COPIER_SETTINGS["odoo_version"]["choices"])
